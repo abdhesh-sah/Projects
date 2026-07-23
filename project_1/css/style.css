@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  margin: 0px;
+  padding: 0px;
+  background: url(/assects/gym.jpg);
+}
+.left {
+  display: inline-block;
+  position: absolute;
+  left: 34px;
+  top: 10px;
+}
+.left img {
+  width: 80px;
+}
+.left div {
+  text-align: center;
+  font-size: 26px;
+  line-height: 0px;
+}
+.mid {
+  display: block;
+  width: 36%;
+  margin: 12px auto;
+}
+.right {
+  display: inline-block;
+  right: 34px;
+  top: 20px;
+  position: absolute;
+}
+.navbar {
+  display: inline-block;
+}
+.navbar li {
+  display: inline-block;
+}
+.navbar li a {
+  color: white;
+  text-decoration: none;
+  padding: 34px 23px;
+}
+.navbar li a:hover {
+  text-decoration: underline;
+}
+.navbar li a:active {
+  color: gray;
+  text-decoration: underline;
+}
+.btn {
+  margin: 0px 9px;
+  border: 2px solid gray;
+  color: white;
+  background: none;
+  padding: 4px 14px;
+  border-radius: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.btn:hover {
+  color: gray;
+}
+.form-section {
+  width: 600px;
+  margin: 100px auto;
+  padding: 50px;
+  background: rgba(23, 23, 23, 0.7);
+  border: 2px solid rgb(193, 190, 190);
+  border-radius: 12px;
+  text-align: center;
+}
+.form-section h2 {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+}
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group input {
+  width: 90%;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: bisque;
+}
+
+.input-group input:focus {
+  outline: none;
+}
+.message {
+  width: 90%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: bisque;
+}
