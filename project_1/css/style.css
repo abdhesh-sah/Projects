@@ -5,7 +5,8 @@ body {
   font-family: "Roboto", sans-serif;
   margin: 0px;
   padding: 0px;
-  background: url(/assects/gym.jpg) no-repeat center center/cover;
+  background: url(/assects/gym.jpg);
+  background-attachment: fixed;
 }
 
 header {
@@ -74,6 +75,54 @@ header {
   color: gray;
 }
 
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.form-confirmation {
+  margin-top: 15px;
+  font-size: 0.95rem;
+}
+
+.form-confirmation.success {
+  color: #7cfc7c;
+}
+
+.form-confirmation.error {
+  color: #ff8080;
+}
+
 /* Hero Section */
 .section-first {
   min-height: 30px;
@@ -95,7 +144,6 @@ header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 60px 20px;
   gap: 30px;
   margin: 10px;
   padding: 50px;
@@ -108,16 +156,126 @@ header {
   height: 400px;
   filter: brightness(0) invert(1);
 }
+.mas-card {
+  align-content: center;
+}
+.about-mas {
+  background: rgba(23, 23, 23, 0.7);
+  border: 2px solid rgb(193, 190, 190);
+  border-radius: 12px;
+  padding: 20px;
+  display: inline-block;
+  width: 54%;
+  height: 100px;
+  margin: 30px;
+}
 
+.section-about,
+.section-services,
+.section-pricing {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.section-about h2,
+.section-services h2,
+.section-pricing h2 {
+  margin-bottom: 30px;
+}
+
+.about-grid,
+.services-grid,
+.pricing-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.about-card,
+.service-card,
+.pricing-card {
+  background: rgba(23, 23, 23, 0.7);
+  border: 2px solid rgb(193, 190, 190);
+  border-radius: 12px;
+  padding: 20px;
+  width: 220px;
+}
+
+.section-contact {
+  margin: 30px;
+}
+.section-contact h2 {
+  text-align: center;
+}
+
+.contact-info {
+  flex: 1 1 300px;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  background: rgba(23, 23, 23, 0.7);
+  border: 2px solid rgb(193, 190, 190);
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.contact-info h3 {
+  margin: 0 0 20px;
+  text-align: left;
+}
+
+.text {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  font-size: 1.1rem;
+  font-style: normal;
+}
+
+.info .icon {
+  flex-shrink: 0;
+  width: 22px;
+  text-align: center;
+}
+
+.info a,
+.info address {
+  color: white;
+  text-decoration: none;
+}
+
+.info a:hover {
+  color: gray;
+  text-decoration: underline;
+}
+
+.contact-detail {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin: 50px 20px;
+}
 .form-section {
-  width: 90%;
-  max-width: 600px;
+  flex: 1 1 400px;
+  max-width: 500px;
   margin: 40px auto;
   padding: 30px 20px;
   background: rgba(23, 23, 23, 0.7);
   border: 2px solid rgb(193, 190, 190);
   border-radius: 12px;
-  text-align: center;
+
   box-sizing: border-box;
 }
 
@@ -146,57 +304,93 @@ header {
 .input-group input:focus {
   outline: none;
 }
-
+.footer {
+  height: 200px;
+  /* background-color: lightblue; */
+  text-align: center;
+  color: rgb(138, 123, 123);
+  border: 2px solid rgb(193, 190, 190);
+  background: rgba(23, 23, 23, 0.7);
+  border-radius: 8px;
+}
 /* --- RESPONSIVE MEDIA QUERIES --- */
 
-/* Tablets & Mobile (< 768px) */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Keeps logo, links, and buttons aligned to center */
+    align-items: center;
     gap: 15px;
   }
 
   .left {
-    align-items: center; /* Fixes left-leaning logo alignment */
+    align-items: center;
+  }
+
+  .nav-toggle {
+    display: flex;
   }
 
   .navbar {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+    width: 100%;
+  }
+
+  .navbar.open {
+    max-height: 300px;
   }
 
   .navbar li a {
-    padding: 8px 0; /* Expanded touch target size for mobile fingers */
+    padding: 8px 0;
   }
 
   .right {
     flex-direction: column;
-    width: 100%; /* Spans full width for structured button stacking */
-    max-width: 250px; /* Prevents buttons from stretching too wide */
+    width: 100%;
+    max-width: 250px;
     gap: 10px;
   }
 
   .btn {
-    width: 100%; /* Full-width tap areas on mobile */
+    width: 100%;
     margin: 0;
+  }
+  .section-second {
+    flex-wrap: wrap;
+    flex-direction: column;
   }
 
   .form-section {
     padding: 20px 15px;
     margin: 20px auto;
   }
+
+  .contact-detail {
+    margin: 20px 15px;
+  }
+
+  .contact-info,
+  .form-section {
+    flex-basis: 100%;
+    max-width: 95%;
+  }
 }
 
-/* Small Mobile Phones (< 480px) */
 @media (max-width: 480px) {
   .section-first h1 {
-    padding: 15px 5px; /* Adds side padding so text doesn't touch screen edges */
+    padding: 15px 5px;
+  }
+  .section-second {
+    flex-wrap: wrap;
+    flex-direction: column;
   }
 
   .form-section {
-    width: 95%; /* Maximizes available screen space on tiny displays */
+    width: 95%;
   }
 }
