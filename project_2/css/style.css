@@ -7,42 +7,55 @@
 }
 
 body {
-  background-color: rgb(49, 77, 77);
-  color: white;
+  background-color: #0f172a;
+  color: #f8fafc;
   font-family: "Open Sans", sans-serif;
+  overflow-x: hidden; /* Prevents horizontal scrollbars on body */
+}
+
+/* Base Responsive Image Safety */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 nav {
   display: flex;
-  justify-content: space-between; /* Gives clean spacing between logo and links */
+  justify-content: space-between;
   align-items: center;
   margin: 20px 40px;
   padding: 10px 30px;
-  background-color: rgb(49, 53, 53);
+  background-color: #1e293b;
   border-radius: 20px;
+}
+
+.navleft {
+  color: rgb(113, 142, 171);
+  font-weight: bold;
 }
 
 nav ul {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 nav ul li {
   list-style: none;
-  margin: 0 18px;
+  margin: 5px 18px;
 }
 
 nav ul li a,
 nav ul li a:visited {
   text-decoration: none;
-  color: white;
+  color: #f8fafc;
   display: inline-block;
   transition: all 0.2s ease-in-out;
 }
 
 nav ul li a:hover,
 nav ul li a:active {
-  color: aqua;
+  color: #38bdf8;
   transform: scale(1.05);
 }
 
@@ -50,17 +63,35 @@ nav ul li a:active {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 80px 0;
+  margin: 60px 20px;
+  gap: 30px;
 }
 
 .leftsection {
-  width: 35%;
-  font-size: 3.5rem;
+  width: 45%;
+  font-size: 3rem;
   line-height: 1.25;
+}
+.leftsection .btn {
+  background-color: rgb(60 99 126);
+  border: 2px;
+  border-radius: 19px;
+  padding: 15px;
+  font-size: 27px;
+  margin: 5px;
+}
+
+.leftsection .button{
+  padding: 47px;
+}
+
+.leftsection .btn:hover{
+    color: pink;
+    font-size: 30px;
 }
 
 .rightsection {
-  width: 40%;
+  width: 45%;
   text-align: center;
 }
 
@@ -70,5 +101,180 @@ nav ul li a:active {
 }
 
 .name {
-  color: aqua;
+  color: rgb(56, 189, 248);
+  font-weight: bold;
+}
+
+#element {
+  color: rgb(58, 191, 248);
+}
+
+.line {
+  border: none;
+  height: 2px;
+  background-color: #9fc2da;
+  margin: 20px;
+}
+
+.secondsection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+  height: 600px;
+  overflow-x: hidden; 
+}
+
+.gray {
+  color: gray;
+}
+
+.secondsection .box {
+  background: white;
+  width: 100%;
+  height: 2px;
+  margin: 60px 0 160px;
+  display: flex;
+}
+
+.secondsection .vertical {
+  height: 100px;
+  width: 1px;
+  background-color: white;
+  margin: 0 90px;
+}
+
+/* .image-top {
+  width: 35px;
+  position: relative;
+  top: -44px;
+  left: -17px;
+} */
+
+.vertical-title {
+  position: relative;
+  top: 75px;
+  width: 150px;
+  font-weight: 600;
+}
+
+.vertical-desc {
+  position: relative;
+  top: 75px;
+  color: #94a3b8;
+  font-size: 11px;
+  width: 150px;
+}
+
+/* Footer Section */
+footer {
+  background-color: #121212;
+  color: #e0e0e0;
+  padding: 60px 10% 30px;
+  font-family: sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-col {
+  flex: 1 1 200px;
+}
+
+.footer-col h3,
+.footer-col h4 {
+  color: #ffffff;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.footer-col p {
+  color: #a0a0a0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col a {
+  color: #a0a0a0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+  color: #00adb5;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.copyright {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* ===================================================
+   RESPONSIVE MEDIA QUERIES (Minimal Adjustments)
+   =================================================== */
+
+@media (max-width: 900px) {
+  .leftsection {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 15px;
+    margin: 15px 20px;
+    padding: 15px;
+    text-align: center;
+  }
+
+  nav ul {
+    padding: 0;
+  }
+
+  nav ul li {
+    margin: 5px 10px;
+  }
+
+  .firstsection {
+    flex-direction: column-reverse;
+    margin: 40px 20px;
+    text-align: center;
+  }
+
+  .leftsection,
+  .rightsection {
+    width: 100%;
+  }
+
+  .leftsection {
+    font-size: 2rem;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+  }
 }
