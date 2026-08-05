@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(138deg, rgb(130, 132, 196), rgb(144, 144, 54));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 500px;
+  text-align: center;
+  height: 500px;
+  border: 2px solid red;
+  background: white;
+  border-radius: 30px;
+  text-shadow: 10dvh;
+}
