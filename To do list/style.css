@@ -1,6 +1,11 @@
-body {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
   background: linear-gradient(138deg, rgb(130, 132, 196), rgb(144, 144, 54));
   display: flex;
   justify-content: center;
@@ -9,11 +14,39 @@ body {
 }
 
 .container {
+  padding: 30px;
   width: 500px;
   text-align: center;
-  height: 500px;
-  border: 2px solid red;
-  background: white;
+  border: 2px solid rgb(107, 20, 221);
+  background: rgb(223, 198, 198);
   border-radius: 30px;
   text-shadow: 10dvh;
 }
+.container h1 img {
+  width: 25px;
+  margin-left: 6px;
+}
+.input-container input {
+  width: 55%;
+  padding: 10px;
+  border: 3px solid blue;
+  margin: 10px;
+  border-radius: 10px;
+}
+.input-container button {
+  padding: 10px;
+  border: 3px solid rgb(207, 255, 244);
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.container ul {
+  margin: 20px 30px;
+  padding: 10px;
+  text-align: left;
+}
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
