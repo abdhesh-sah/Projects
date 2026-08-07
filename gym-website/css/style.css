@@ -5,7 +5,7 @@ body {
   font-family: "Roboto", sans-serif;
   margin: 0px;
   padding: 0px;
-  background: url(/assects/gym.jpg);
+  background: url("../assets/gym.jpg");
   background-attachment: fixed;
 }
 

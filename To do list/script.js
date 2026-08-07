@@ -12,14 +12,20 @@ function save() {
 function read() {
     let savedText = localStorage.getItem('mytask');
     if (savedText) {
-        tasks = JSON.parse(savedText);
-        tasks.forEach(function (taskText) {
-            createTaskElement(taskText);
+        tasks = JSON.parse(savedText).map(function (taskObj, index) {
+            return {
+                id: taskObj.id || `${Date.now()}-${index}`,
+                text: taskObj.text,
+                completed: taskObj.completed
+            };
+        });
+        tasks.forEach(function (taskObj) {
+            createTaskElement(taskObj);
         });
     }
 }
 
-function createTaskElement(text) {
+function createTaskElement(taskObj) {
     let newtask = document.createElement('li');
     newtask.textContent = taskObj.text;
     if (taskObj.completed){
@@ -47,7 +53,7 @@ function createTaskElement(text) {
         newtask.remove();
 
         tasks = tasks.filter(function(item) {
-            return item !== text;
+            return item.id !== taskObj.id;
         });
         save();
 
@@ -69,8 +75,9 @@ function addtask() {
     }
 
     let taskObj= {text: text, completed:false}
+    taskObj.id = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
     tasks.push(taskObj);
-    createTaskElement(taxtObj);
+    createTaskElement(taskObj);
     inputtask.value = "";
     save();
 };

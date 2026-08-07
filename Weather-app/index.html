@@ -43,8 +43,9 @@
 
     </div>
 </body>
+<script src="config.js"></script>
 <script>
-    const apiKey = "your api key";
+    const apiKey = window.weatherAppConfig?.apiKey || "";
     const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric";
 
     const searchBox = document.querySelector(".search input");
@@ -54,7 +55,7 @@
     async function checkWeather(city) {
         const response = await fetch(apiUrl + `&q=${city}&appid=${apiKey}`);
 
-        if (response.status === 404) {
+        if (!response.ok) {
             document.querySelector(".error").style.display = "block";
             document.querySelector(".weather").style.display = "none";
         }
@@ -101,7 +102,9 @@
         }
     });
 
-    checkWeather();
+    if (apiKey && !apiKey.startsWith("PASTE_")) {
+        checkWeather("Kathmandu");
+    }
 </script>
 
 </html>
