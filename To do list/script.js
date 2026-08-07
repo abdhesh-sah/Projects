@@ -33,6 +33,8 @@ function createTaskElement(text) {
 
     newtask.addEventListener('click', function () {
         newtask.classList.toggle('completed');
+        taskObj.completed =!taskObj.completed;
+        save();
     });
 
     let deleteBtn = document.createElement('button');
