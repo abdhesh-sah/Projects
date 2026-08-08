@@ -70,6 +70,4 @@ body {
   color: white;
 }
 
-.answer button:disabled {
-  cursor: not-allowed;
 }
